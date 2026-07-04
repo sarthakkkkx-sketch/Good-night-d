@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Night Divay 💖</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2b1055 0%, #7597de 50%, #ff6b9d 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow-x: hidden;
+    color: #fff;
+    position: relative;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Floating particles */
+ .heart,.star,.petal {
+    position: fixed;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+
+ .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+ .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 30px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    margin: 15px 0;
+  }
+
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+    min-height: 80px;
+  }
+
+ .typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+ .moon {
+    font-size: 4rem;
+    cursor: pointer;
+    display: inline-block;
+    animation: glow 2s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+
+ .moon:hover { transform: scale(1.2); }
+
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px #fff); }
+    50% { filter: drop-shadow(0 0 25px #ffd700); }
+  }
+
+ .message {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 20px 0;
+    min-height: 60px;
+    font-weight: 300;
+  }
+
+ .btn {
+    background: linear-gradient(45deg, #ff6b9d, #c06c84);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+  }
+
+ .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+  }
+
+ .btn:active { transform: scale(0.95); }
+
+ .btn-whatsapp {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+  }
+
+ .quote {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    opacity: 0;
+    transition: opacity 1s;
+    margin: 15px 0;
+    min-height: 50px;
+  }
+
+ .quote.show { opacity: 1; }
+
+ .counter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    z-index: 100;
+  }
+
+ .music-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s;
+  }
+
+ .music-btn:hover { background: rgba(255, 255, 255, 0.3); }
+
+ .kiss {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    animation: kissFloat 2s ease-out forwards;
+    z-index: 1000;
+  }
+
+  @keyframes kissFloat {
+    0% { transform: translateY(0) scale(0); opacity: 1; }
+    100% { transform: translateY(-200px) scale(1.5) rotate(360deg); opacity: 0; }
+  }
+
+  footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+   .btn { padding: 12px 24px; font-size: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+  <button class="music-btn" id="musicBtn">🎵</button>
+  <div class="counter">💖 <span id="heartCount">0</span></div>
+
+  <audio id="bgMusic" loop>
+    <source src="YOUR_MUSIC_URL.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div class="glass-card">
+      <div class="moon" id="moon">🌙</div>
+      <h1 id="title"></h1>
+      <div class="message" id="message"></div>
+      <div class="quote" id="quote"></div>
+    </div>
+
+    <div class="glass-card">
+      <button class="btn" id="kissBtn">Send a Kiss 💋</button>
+      <button class="btn btn-whatsapp" id="whatsappBtn">
+        Share on WhatsApp 💌
+      </button>
+      <button class="btn" id="wishBtn">Make a Wish ⭐</button>
+    </div>
+
+    <footer>Made with Love ❤️ for Divay</footer>
+  </div>
+
+<script>
+  // Typing animation for title
+  const titleText = "Good Night Divay 💖";
+  let titleIndex = 0;
+  function typeTitle() {
+    if (titleIndex < titleText.length) {
+      document.getElementById('title').innerHTML = titleText.slice(0, ++titleIndex) + '<span class="typing"></span>';
+      setTimeout(typeTitle, 150);
+    } else {
+      document.getElementById('title').innerHTML = titleText;
+    }
+  }
+  typeTitle();
+
+  // Rotating romantic messages
+  const messages = [
+    "May your dreams be as sweet as your smile, Divay 🌙",
+    "The stars are jealous of how you shine ✨ Sleep tight!",
+    "Closing my eyes and thinking of you... Good night jaan 💕",
+    "Sending you hugs and kisses across the miles 🤗💋",
+    "Dream of all the beautiful moments we'll share tomorrow 🌹"
+  ];
+  let msgIndex = 0;
+  function rotateMessage() {
+    document.getElementById('message').innerHTML = messages[msgIndex];
+    msgIndex = (msgIndex + 1) % messages.length;
+  }
+  rotateMessage();
+  setInterval(rotateMessage, 4000);
+
+  // Rotating quotes
+  const quotes = [
+    "\"In your arms is where I belong\" 💕",
+    "\"You are my today and all of my tomorrows\" 🌙",
+    "\"Every night I fall asleep thinking of you\" ⭐",
+    "\"Distance means nothing when you mean everything\" 💖"
+  ];
+  let quoteIndex = 0;
+  function rotateQuote() {
+    const quoteEl = document.getElementById('quote');
+    quoteEl.classList.remove('show');
+    setTimeout(() => {
+      quoteEl.innerHTML = quotes[quoteIndex];
+      quoteEl.classList.add('show');
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+    }, 500);
+  }
+  rotateQuote();
+  setInterval(rotateQuote, 5000);
+
+  // Music toggle
+  const music = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+  musicBtn.onclick = () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerHTML = '🔊';
+    } else {
+      music.pause();
+      musicBtn.innerHTML = '🎵';
+    }
+  };
+
+  // Kiss button - burst of kisses
+  document.getElementById('kissBtn').onclick = (e) => {
+    for (let i = 0; i < 15; i++) {
+      setTimeout(() => createKiss(e.clientX, e.clientY), i * 50);
+    }
+    incrementHearts(5);
+  };
+
+  function createKiss(x, y) {
+    const kiss = document.createElement('div');
+    kiss.className = 'kiss';
+    kiss.innerHTML = ['💋', '❤️', '💕', '😘'][Math.floor(Math.random() * 4)];
+    kiss.style.left = (x + Math.random() * 100 - 50) + 'px';
+    kiss.style.top = (y + Math.random() * 50) + 'px';
+    document.body.appendChild(kiss);
+    setTimeout(() => kiss.remove(), 2000);
+  }
+
+  // WhatsApp share
+  document.getElementById('whatsappBtn').onclick = () => {
+    const text = `Good Night Divay 💖✨%0A%0AMay your dreams be sweet and your sleep be peaceful 🌙%0ASending you lots of love and virtual hugs 🤗💕%0A%0ASleep tight, jaan! %0A%0A- Made with love ❤️`;
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  };
+
+  // Make a wish
+  document.getElementById('wishBtn').onclick = () => {
+    const wish = prompt('🌟 Close your eyes and make a wish for Divay:');
+    if (wish) {
+      alert(`✨ Your wish "${wish}" is sent to the stars for Divay! 💫`);
+      createStarBurst();
+    }
+  };
+
+  document.getElementById('moon').onclick = () => {
+    const wish = prompt('🌙 Whisper your wish to the moon:');
+    if (wish) {
+      alert(`🌙 The moon will carry your wish: "${wish}" 💖`);
+      createStarBurst();
+    }
+  };
+
+  function createStarBurst() {
+    for (let i = 0; i < 20; i++) {
+      setTimeout(() => {
+        const star = document.createElement('div');
+        star.innerHTML = '⭐';
+        star.style.position = 'fixed';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.fontSize = Math.random() * 20 + 10 + 'px';
+        star.style.animation = 'float 3s ease-out forwards';
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 3000);
+      }, i * 100);
+    }
+  }
+
+  // Heart counter - click anywhere
+  let heartCount = 0;
+  document.body.onclick = (e) => {
+    if (e.target.tagName!== 'BUTTON') {
+      incrementHearts(1);
+      createFloatingHeart(e.clientX, e.clientY);
+    }
+  };
+
+  function incrementHearts(num) {
+    heartCount += num;
+    document.getElementById('heartCount').textContent = heartCount;
+  }
+
+  function createFloatingHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.innerHTML = '💖';
+    heart.style.position = 'fixed';
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+    heart.style.fontSize = '20px';
+    heart.style.pointerEvents = 'none';
+    heart.style.animation = 'kissFloat 2s ease-out forwards';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2000);
+  }
+
+  // Auto-generate floating particles
+  function createParticle() {
+    const particles = ['💖', '⭐', '🌹', '✨', '💕'];
+    const particle = document.createElement('div');
+    particle.className = 'heart';
+    particle.innerHTML = particles[Math.floor(Math.random() * particles.length)];
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.fontSize = Math.random() * 15 + 10 + 'px';
+    particle.style.animationDuration = Math.random() * 3 + 4 + 's';
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 7000);
+  }
+  setInterval(createParticle, 800);
+</script>
+</body>
+  </html>
